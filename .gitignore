@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env
+dist/
+build/
+._*
+.DS_Store._*
+.DS_Store
