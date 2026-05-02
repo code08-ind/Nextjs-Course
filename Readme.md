@@ -105,12 +105,44 @@ dynamic: It has by default value as auto by default. If we have any of the metho
 If we take searchParams out of the props by destructuring the props and use them just to take out, then also the component or page is rendered dynamically.
 
 We can also make a component or page to be rendered dynamically, we can do so by using the:
-const myCookies = await cookies(); and bringing cookies from 'next/headers' package, then also the component becomes the dynamic component. Even if we use headers() to get the headers, then also our page will become as dynamically rendered. 
+const myCookies = await cookies(); and bringing cookies from 'next/headers' package, then also the component becomes the dynamic component. Even if we use headers() to get the headers, then also our page will become as dynamically rendered.
 
 If we give dynamic as error and we have provided any of these functions such as searchParams, headers() or cookies(), then we will get error as we want to render that page statically and if use any of the methods for dynamic rendering, so it will throw the error.
 
 ## Streaming in Next.js
 
-It is a new rendering paradigm. 
+It is a new rendering paradigm. We can have a component that takes time, we can use the Suspense for this and show a fallback for time being after wrapping that component inside the Suspense. This will prevent the page from getting stuck and it will have our page loaded fully.
 
-Start From 05:00 Mins.
+This is called as Streaming in Next.js and that is how the data comes up in the component from the API and we should keep those kinds of components inside the Suspense block. inside the suspense, we can pass the fallback with the children prop inside it.
+
+## Client vs Server Components
+
+Server components run over the server and by default all the components in Next.js are server components.
+
+Client components are executed on the server as well and then we will send the code over the client or the browser.
+
+We will make a component as client component when we want to interact with the browser or browser APIs. We can make use of "use client" directive and this will make our component as client component. In browser dev tools, in source file we can see the jsx code only because due to the source maps.
+
+Accessing this on server side may then also give us the error and this error can be prevented using:
+
+if(typeof localStorage !=="undefined"){
+    console.log(localStorage);
+}
+
+If we want interactivity or using event handlers or using hooks or using browser API's, we need to make the component as client component. Also, this makes the server to skip the client code totally. If we use console.log() inside {}, the server will give undefined as the return value. In React, same code will not give any value as returned.
+
+If we make a parent component as client component, all the child components inside the parent component becomes the client components.
+
+We should not send all the data to the client by making all the content as client components as it will put a lot of load over the client.
+
+We should make the smallest component as the client component itself.
+
+## Hydration
+
+It is the process where we interactivity to the pre-rendered HTML.
+
+Server will add the HTML code and at the client side component has the JS added already over the client side code.
+
+In the Link component, the Default behavior of the a tag has been removed and the users are transferred to the other page.
+
+Start From 04:00 Mins.
