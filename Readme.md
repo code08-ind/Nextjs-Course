@@ -145,4 +145,33 @@ Server will add the HTML code and at the client side component has the JS added 
 
 In the Link component, the Default behavior of the a tag has been removed and the users are transferred to the other page.
 
-Start From 04:00 Mins.
+Hydration even happens at client side as well as server side both. If the hydration results into different client side code as the HTML which is being rendered by the server, so it gives the hydration error.
+
+Hydration Error comes when we work with the client components. Hydration error will not come if the client rendered code and the server rendered code matches.
+
+It also occur if we have some browser extensions installed or if we use variables such as Date.now() or Math.random() which keeps on changing or invalid HTML Tag nesting. Hydration Error helps us to help us to make the user's experience better.
+
+## Data Fetching in Client Components
+
+We can make use of useEffect at client side and the data gets fetched from it. Moreover we will need to make the "use client" directive.
+
+## Data Fetching in Server Components
+
+We can directly use the fetch by making the server component as async function and directly call the fetch function and make our API call easily. It uses Nextjs's own fetch and it is extended version of Browser's fetch and we can pass the revalidate option inside the next option and this supports the ISR.
+
+It's fetch is different from the one used inside the Node.js fetch and these functions are different from each other.
+
+We can also make our API call or Database call inside the Server Components.
+
+## Handling Loading State
+
+We can make use of loading.js that will show the state as loading when the component is still loading behind the scene, it will show some fallback state just like Suspense.
+
+Suspense needs to be used if a component is slow inside the parent component, so we have that component wrapped inside the Suspense.
+
+If the whole page is slow, then we can make use of the loading component provided by Next.js
+
+
+
+
+Start From 08:00 Mins.
